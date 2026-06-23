@@ -95,25 +95,3 @@ Na tela inicial há agora:
 - exibição mascarada da chave carregada, por exemplo `gsk_abc...WXYZ`, para você confirmar se o servidor está usando a chave certa sem expor o segredo inteiro.
 
 O botão de verificação mostra headers de limite quando a Groq os retorna, como requisições restantes, tokens restantes e `retry-after`. O histórico diário/mensal completo continua sendo consultado no console/logs da Groq.
-
-### Teste isolado da API key
-
-Também foi incluído o arquivo:
-
-```bash
-py check_groq_key.py
-```
-
-No PowerShell:
-
-```powershell
-$env:GROQ_API_KEY = "gsk_sua_chave_aqui"
-$env:GROQ_MODEL = "llama-3.3-70b-versatile"
-py check_groq_key.py
-```
-
-Se aparecer `HTTP 401`, a chave enviada pela sua máquina não é a chave válida atual. Confira se você copiou o valor secreto completo, se a chave não foi revogada e se não existe outra variável de ambiente sobrepondo o `.env`.
-
-## Coletar todas as avaliações
-
-No seletor de quantidade, escolha **Todas as avaliações**. O sistema tentará rolar a aba de avaliações até não carregar mais itens ou até atingir o limite de segurança de 1000 avaliações para evitar travamento em locais com milhares de reviews.
